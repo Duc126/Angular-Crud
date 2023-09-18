@@ -1,0 +1,109 @@
+{
+  "todos": [
+    {
+      "id": 10,
+      "title": "Lifecycle hooks",
+      "note": "cá thể thành phần có vòng đời bắt đầu khi Angular khởi tạo lớp thành phần và hiển thị chế độ xem thành phần cùng với các chế độ xem con của nó và chuỗi sự kiện vòng đời này có tên là "
+    },
+    {
+      "id": 11,
+      "title": "Text interpolation \"Hiển thị các giá trị với phép nội suy\"",
+      "note": "dạng {{}}"
+    },
+    {
+      "id": 12,
+      "title": "Component Styles",
+      "note": "Successs"
+    },
+    {
+      "id": 13,
+      "title": "Components",
+      "note": "Success"
+    },
+    {
+      "id": 14,
+      "title": "Components Communication",
+      "note": " tình huống giao tiếp thành phần phổ biến trong đó hai hoặc nhiều thành phần chia sẻ thông tin."
+    },
+    {
+      "id": 15,
+      "title": "Ng-Content",
+      "note": "chiếu nội dung có điều kiện "
+    },
+    {
+      "id": 16,
+      "title": "NgOnChanges()",
+      "note": "Phản hồi khi Angular đặt hoặc đặt lại các thuộc tính đầu vào ràng buộc dữ liệu"
+    },
+    {
+      "id": 17,
+      "title": "ngOnInit",
+      "note": "Khởi tạo chỉ thị hoặc thành phần sau khi Angular lần đầu tiên hiển thị các thuộc tính liên kết dữ liệu và thiết lập các thuộc tính đầu vào của chỉ thị hoặc thành phần "
+    },
+    {
+      "id": 18,
+      "title": "Property binding(Ràng buộc tài sản)",
+      "note": "[disabled]=\"isUnchanged\" ví dụ set gía trị"
+    },
+    {
+      "id": 19,
+      "title": "Attribute",
+      "note": "Ràng buộc thuộc tính trong Angular giúp bạn đặt giá trị cho các thuộc tính một cách trực tiếp ví dụ [attr.aria-label]=\"actionName\">{{actionName}}"
+    },
+    {
+      "id": 20,
+      "title": "Template Statements dùng để phản hồi các sự kiện",
+      "note": "ví dụ (click)=\"deleteHero()"
+    },
+    {
+      "id": 21,
+      "title": "even binding (sự kiện ràng buộc) phản hồi tổ hợp phím",
+      "note": "ví dụ (click) = \"onsave\""
+    },
+    {
+      "id": 22,
+      "title": "Two-way Binding (ràng buộc 2 chiều)",
+      "note": "liên kết 2 chiều dùng để chia sẻ dữ liệu"
+    },
+    {
+      "id": 23,
+      "title": "Directives",
+      "note": "một đối tượng giúp chúng ta dễ dàng thay đổi một đối tượng khác"
+    },
+    {
+      "id": 24,
+      "title": "Attribute directives",
+      "note": "Thay đổi giao diện hoặc hành vi của các phần tử DOM và các thành phần Angular bằng các chỉ thị thuộc tính. ví dụ:  @HostListener('mouseleave') onMouseLeave() { this.highlight(''); } "
+    },
+    {
+      "id": 25,
+      "title": "Structural directives",
+      "note": "cấu trúc NgIf, NgForOf"
+    },
+    {
+      "id": 26,
+      "title": "Dependency Injection",
+      "note": "Kết nối với khung công tác ví dụ như constructor(private service: HeroService) {}"
+    },
+    {
+      "id": 27,
+      "title": "HTTP Client",
+      "note": "phương thức không bắt đầu yêu cầu HTTP của nó cho đến khi bạn gọi subscribe()phương thức có thể quan sát được thì phương thức trả về."
+    },
+    {
+      "id": 28,
+      "title": "Reactive Forms",
+      "note": "sử dụng Form Controller và form model đầu vào sẽ là formControlName"
+    },
+    {
+      "id": 29,
+      "title": "template-driven form",
+      "note": "Tạo biểu mẫu theo hướng mẫu NgModel, NgForm, NgModelGroup"
+    },
+    {
+      "id": 30,
+      "title": "abca",
+      "note": "liên kết 2 chiều dùng để chia sẻ dữ liệu"
+    }
+  ]
+}

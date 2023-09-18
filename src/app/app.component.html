@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <div class=" container-fluid title" style=" justify-content: center;">
+    <a class="navbar-brand title-font" href="#">To Do List</a>
+    <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+  </div>
+</nav>
+<button type="button" class="btn btn-primary btn-add mt-3" (click)="openValidate()"> {{validate}}</button>
+<div class="modal fade" id="validateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-10">
+              <div class="jumbotron">
+                <h2 class="text-center">Validation Form</h2>
+                <form name="formValidate" [formGroup]="formValidate" (ngSubmit)="formValidate.valid && onSubmit()">
+                  <div class="form-group">
+                    <label for="firstName">First Name
+                    </label>
+                    <input type="text" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':
+            formValidate.get('firstName')?.touched && formValidate.get('firstName')?.invalid}" />
+                    <div class="invalid-feedback">
+
+                      <div *ngIf="formValidate.get('firstName')?.errors?.['required']">First Name is required</div>
+                      <div *ngIf="formValidate.get('firstName')?.errors?.['minLength']">First Name must be at least 4 characters long.</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name
+                    </label>
+                    <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid':
+            formValidate.get('lastName')?.touched && formValidate.get('lastName')?.invalid}" />
+                    <div class="invalid-feedback">
+                      <div>Last Name is required</div>
+
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email
+                    </label>
+                    <input type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':
+            formValidate.get('email')?.touched && formValidate.get('email')?.invalid}" />
+                    <div *ngIf="formValidate.get('email')?.touched && formValidate.get('email')?.invalid"
+                      class="invalid-feedback">
+                      <div *ngIf="formValidate.get('email')?.errors?.['required']">Email Name is required</div>
+                      <div *ngIf="formValidate.get('email')?.errors?.['email']">Email must be a valid email Address
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div class="form-group mt-3">
+                    <button class="btn btn-primary" [disabled]="!formValidate.valid">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

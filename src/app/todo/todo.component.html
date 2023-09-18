@@ -1,0 +1,79 @@
+<div class="container w-50">
+  <div class=" mt-2">
+    <div class="d-flex">
+      <input class="form-control my-3" style="margin-right: 30px;" type="text" name="search" [(ngModel)]="searchText"
+        autocomplete="off" placeholder="&#61442;  Start searching...">
+      <a class="btn btn-primary btn-add my-3" (click)="openCreate()">Add To Do List</a>
+    </div>
+    <table class="table table-striped solid">
+      <thead class="thead-dark bg-success solid">
+        <tr class="solid text-center">
+          <th scope="col" class="solid">#</th>
+          <th scope="col" class="solid">Title</th>
+          <th scope="col" class="solid">Note</th>
+          <th scope="col" class="solid">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of allTodo | filter: searchText | paginate: { itemsPerPage: 10, currentPage: paginater }"
+          class="text-center">
+          <th scope="row" class="solid text-center">{{item.id}}</th>
+          <td class="solid">{{item.title}}</td>
+          <td class="solid">{{item.note}}</td>
+          <td style="width: 30%;">
+            <a class="btn btn-primary" style="margin-right: 15px;" (click)="openEdit(item.id)">Edit</a>
+            <button type="button" class="btn btn-danger" (click)="openDeleteModal(item.id)"> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are sure to delete this todo list
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="delete()" class="btn btn-primary">Confirm Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--edit Modal-->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h1 class="text-center mt-3">{{title}}</h1>
+        <form class="edit-form mx-4">
+          <div class="mb-3">
+            <label for="txttitle" class="form-label">Title</label>
+            <input type="string" class="form-control" id="txtTitle" aria-describedby="emailHelp" name="title"
+              [(ngModel)]="todoForm.title" />
+          </div>
+          <div class="mb-3">
+            <label for="txtnote" class="form-label">Note</label>
+            <input type="string" class="form-control" id="txtNote" aria-describedby="emailHelp" name="note"
+              [(ngModel)]="todoForm.note" />
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+          <button type="submit" (click)="update()" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <pagination-controls (pageChange)="paginater = $event"></pagination-controls>
+  </div>
+  <app-edit #editView> </app-edit>
+  <app-create #createView></app-create>

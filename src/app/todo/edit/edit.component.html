@@ -1,0 +1,46 @@
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-10">
+              <div class="jumbotron">
+                <h1 class="text-center">{{title}}</h1>
+                <form name="editForm" [formGroup]="editForm" (ngSubmit)="editForm.valid && update()">
+                  <div class="form-group">
+                    <label for="txttitle" class="form-label">Title</label>
+                    <input type="string" class="form-control" id="txtTitle" aria-describedby="emailHelp" name="title"
+                      [(ngModel)]="todoForm.title" formControlName="title" required=""
+                      [ngClass]="{'is-invalid': editForm.get('title')?.touched && editForm.get('title')?.invalid}" />
+                    <div class="invalid-feedback">
+                      <div> Title is required</div>
+                    </div>
+                  </div>
+                  <div>
+                    </div>>
+                  <div class="form-group">
+                    <label for="txtnote" class="form-label">Note</label>
+                    <input type="string" class="form-control" id="txtNote" aria-describedby="emailHelp" name="note"
+                      [(ngModel)]="todoForm.note" formControlName="note" required=""
+                      [ngClass]="{'is-invalid': editForm.get('note')?.touched && editForm.get('note')?.invalid}" />
+                    <div class="invalid-feedback">
+                      <div class="col alert alert-danger" role="alert"
+                        *ngIf="editForm.get('note')?.errors?.['required']">Note is required</div>
+                      <div *ngIf="editForm.get('note')?.errors?.['minLength']">Note must be a valid email Address</div>
+                    </div>
+                    <div id="emailHelp" class="form-text"></div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+                    <button type="submit " class="btn btn-primary" [disabled]="!editForm.valid">Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
